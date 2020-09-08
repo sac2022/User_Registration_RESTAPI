@@ -7,12 +7,13 @@ from datetime import datetime
 api = "https://gateway.sms77.io/api/sms"
 send_sms_ok = [100, 200]
 
+
 def send_sms(user):
     print("send_sms called with {}".format(user), flush=True)
     otp = generate_random(6)
     print("otp generated was: {}".format(otp), flush=True)
     db_user = User.objects.only('id').get(id=user['id'])
-    verification = Verification(user['email'], otp, db_user, datetime.now())
+    verification = Verification.objects.create(email=db_user.email,otp=otp,user=db_user,created_at=datetime.now())
     full_url = api + "?p=krTQ4oVvcLi01FIaQ3jM0M93iCGrXCdPCjfHqCrXzlyxTH6zCXgfar6z1FVoJVtG&to=" + db_user.phone_number + "&text=" + otp
     print("full_url {}".format(full_url))
     response = requests.get(full_url)
