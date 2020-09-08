@@ -1,0 +1,4 @@
+Django>=1.0,<3.0
+mysqlclient==2.0.1
+djangorestframework==3.9.4
+requests==2.22.0
