@@ -119,7 +119,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+from django.db.backends.mysql.base import DatabaseWrapper
+DatabaseWrapper.data_types['DateTimeField'] = 'datetime' # fix for MySQL 5.5
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 SECURE_HSTS_SECONDS = 60000

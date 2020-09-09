@@ -9,4 +9,4 @@ RUN pip install --upgrade pip
 RUN pip install -r /code/requirements.txt
 RUN python manage.py collectstatic
 RUN python manage.py makemigrations && python manage.py migrate
-CMD gunicorn user_registration.wsgi:application --bind 0.0.0.0:$PORT
+CMD gunicorn user_project.wsgi:application --bind 0.0.0.0:$PORT
