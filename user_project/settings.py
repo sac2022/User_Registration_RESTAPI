@@ -24,7 +24,7 @@ SECRET_KEY = '0ypn0$ybl0$4zqx3nxmu26j9@%1uk$*%=!yy_6f^bd*m5!oykm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','immense-cliffs-30014-herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','immense-cliffs-30014']
 
 # Application definition
 
