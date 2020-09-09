@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    ports:
+      - '3306:3306'
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=mydb
+      - MYSQL_PASSWORD=password
+  web:
+    build:
+    docker:
+      release:
+        dockerfile: Dockerfile
+        target: builder
+      web: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
