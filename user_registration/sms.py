@@ -4,7 +4,7 @@ import math
 from .models import Verification, User
 from datetime import datetime
 
-api = "https://gateway.sms77.io/api/sms"
+api = "https://rest-api.d7networks.com/secure/send"
 send_sms_ok = [100, 200]
 
 
@@ -14,9 +14,25 @@ def send_sms(user):
     print("otp generated was: {}".format(otp), flush=True)
     db_user = User.objects.only('id').get(id=user['id'])
     verification = Verification.objects.create(email=db_user.email,otp=otp,user=db_user,created_at=datetime.now())
-    full_url = api + "?p=krTQ4oVvcLi01FIaQ3jM0M93iCGrXCdPCjfHqCrXzlyxTH6zCXgfar6z1FVoJVtG&to=" + db_user.phone_number + "&text=" + otp
-    print("full_url {}".format(full_url))
-    response = requests.get(full_url)
+    # full_url = api + "?p=krTQ4oVvcLi01FIaQ3jM0M93iCGrXCdPCjfHqCrXzlyxTH6zCXgfar6z1FVoJVtG&to=" + db_user.phone_number + "&text=" + otp
+    # print("full_url {}".format(full_url))
+    # response = requests.get(full_url)
+    url = "https://http-api.d7networks.com/send"
+    querystring = {
+        "username": "kxgd4441",
+        "password": "DkDQvliv",
+        "from": "Sachin",
+        "content": "your otp is " + str(otp),
+        "dlr-method": "POST",
+        "dlr-url": "https://4ba60af1.ngrok.io/receive",
+        "dlr": "yes",
+        "dlr-level": "3",
+        "to": str(db_user.phone_number)
+    }
+    headers = {
+        'cache-control': "no-cache"
+    }
+    response = requests.request("GET", url, headers=headers, params=querystring)
     print("response: {} status_code: {}".format(response, response.status_code), flush=True)
     if response.status_code in send_sms_ok:
         print("response is okay!!", flush=True)
