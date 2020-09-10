@@ -1,11 +1,14 @@
 **User Registration**
+
 Colllection of APIs used to `register` the user, `verify` the OTP and `login`.
 
 
 **User Registration API**
 
 POST https://immense-cliffs-30014.herokuapp.com/register
+
 **User Registration**
+
 Colllection of APIs used to `register` the user, `verify` the OTP and `login`.
 
 
@@ -83,6 +86,8 @@ HTTP:500
 
 POST https://immense-cliffs-30014.herokuapp.com/verify
 
+**User Verification**
+
 **Request Body**:
 ```
 {
@@ -117,6 +122,8 @@ POST https://immense-cliffs-30014.herokuapp.com/verify
 -----------------------------------------------------------------------------------------------------------------------------
 
 POST https://immense-cliffs-30014.herokuapp.com/login
+
+**User Login**
 
 **Request Body**:
 ```
