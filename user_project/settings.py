@@ -120,7 +120,7 @@ DatabaseWrapper.data_types['DateTimeField'] = 'datetime'  # fix for MySQL 5.5
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 SECURE_HSTS_SECONDS = 60000
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 # Privacy
