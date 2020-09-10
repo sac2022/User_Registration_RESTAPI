@@ -26,7 +26,7 @@ POST https://immense-cliffs-30014.herokuapp.com/register
 **Response**
 `Success`:
 
-HTTP 200
+HTTP:200
 ```
 {
   "id": 5,
@@ -39,12 +39,12 @@ HTTP 200
 ```
 
 `Error`
-HTTP 500
+HTTP:500
 ```
 {
     "msg": "error"
 }
-
+```
 **Request Body**:
 ```
 {
@@ -58,7 +58,7 @@ HTTP 500
 
 **Response**
 `Success`:
- HTTP 200
+ HTTP:200
 ```
 {
   "id": 5,
@@ -70,16 +70,17 @@ HTTP 500
 }
 ```
 
-`Error`
-HTTP 500
+`Error`:
+HTTP:500
 ```
 {
     "msg": "error"
 }
 ```
+
 -----------------------------------------------------------------------------------------------------
 
- POST https://immense-cliffs-30014.herokuapp.com/verify
+POST https://immense-cliffs-30014.herokuapp.com/verify
 
 **Request Body**:
 ```
@@ -92,21 +93,21 @@ HTTP 500
  ```
 **Response**
 `Success`:
- HTTP 200
+ HTTP:200
 ```
 {
   "msg": "user verified"
 }
 ```
 `Error`
-HTTP 500
+ HTTP:500
 ```
  {
     "msg": "invalid otp"
  }
 ```
  `Error`
- HTTP 404
+ HTTP:404
  ```
  {
    "msg": "User Doesnt exist"
@@ -117,19 +118,20 @@ HTTP 500
 POST https://immense-cliffs-30014.herokuapp.com/login
 
 **Request Body**:
-'''
+```
 {
     "email": "sac2023@gmail.com",
     "password": "1235"
 }
-'''
+```
 **Response**
 HTTP:200
 ```
- {
- "msg":"success"
- }
+{
+  "msg":"success"
+}
 ```
+`Error`
 HTTP:500
 ```
  {
