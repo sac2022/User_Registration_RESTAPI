@@ -82,7 +82,7 @@ def login(request):
             logger.error('is valid....')
             db_user = User.objects.filter(email=data['email'], password=password_hash, is_verified=True)
             logger.error('db_user {} len {}'.format(db_user, len(db_user)))
-            if db_user is not None and len(db_user) == 1:
+            if db_user is not None and len(db_user) >= 1:
                 return JsonResponse({"msg": "success"}, status=200)
             return JsonResponse({}, status=404)
         return JsonResponse(serializer.error, status=400)
