@@ -31,7 +31,7 @@ def register(request):
     print("register called....", flush=True)
     if request.method == 'POST':
         data = JSONParser().parse(request)
-        password_hash = hashlib.sha224(str.encode(data['password'])).hexdigest()
+        password_hash = hashlib.sha224(str.encode(data['password'])).hexdigest() #encyption using sha224
         data['password'] = password_hash
         print("len of password", len(data['password']))
         serializer = UserSerializer(data=data)
