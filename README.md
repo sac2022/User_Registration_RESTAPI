@@ -12,6 +12,7 @@ Colllection of APIs used to `register` the user, `verify` the OTP and `login`.
 **User Registration API**
 
 POST https://immense-cliffs-30014.herokuapp.com/register
+
 **Request Body**:
 ```
 {
